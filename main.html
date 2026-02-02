@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Crazy Coin Columns</title>
+</head>
+<body>
+    <form>
+        <label for="ccount">Rerolls</label>
+        <input type="text" id="ccount" name="ccount"><br>
+        <label for="rcount">Rolls</label>
+        <input type="text" id="rcount" name="rcount"><br>
+        <input type="button" onclick="generateTable()" value="FLIP!">
+    </form>
+
+<div id="tables"></div>
+<table id="table">
+
+</table>
+
+<script>
+    function generateTable() {
+        createRows()
+        createCells()
+        fillCells()
+
+    }
+
+    function createRows() {
+        console.log("createRows ran")
+        var rowCount = document.getElementById("rcount").value;
+        var singleRow = "<tr class='row'></tr>"
+
+        var rowsString = singleRow.repeat(rowCount)
+        document.getElementById("table").innerHTML = rowsString
+
+    }
+
+    function createCells() {
+        console.log("createCells ran")
+        var rows = document.getElementsByTagName("tr")
+        var columnCount = document.getElementById("ccount").value;
+        for (let i = 0; i < rows.length; ++i) {
+            var singleCell = "<td>Coin</td>"
+            var columnsString = singleCell.repeat(columnCount);
+            rows[i].innerHTML = columnsString
+        }
+    }
+
+    function fillCells() {
+        var cells = document.getElementsByTagName("td")
+        for (let i = 0; i < cells.length; ++i) {
+            cells[i].innerHTML = coin()
+        }
+    }
+
+    function coin() {
+        if (Math.random() < 0.5) {
+            return "H"
+        } else {
+            return "T"
+        }
+    }
+
+</script>
+
+</body>
+</html> 
