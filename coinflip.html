@@ -2,15 +2,28 @@
 <html>
 <head>
   <title>Crazy Coin Columns</title>
+  <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <form>
-        <label for="ccount">Rerolls</label>
-        <input type="number" min="1" step="1" id="ccount" name="ccount"><br>
-        <label for="rcount">Rolls</label>
-        <input type="number" mint="1" step="1" id="rcount" name="rcount"><br>
-        <input type="button" onclick="generateTable()" value="FLIP!">
-    </form>
+    <div id="rerolls">
+        <div class="rollName">Rerolls</div>
+        <div class="rollCount" id="columnCount">1</div>
+        <div class="rollNumButtons">
+            <div class="incButton" onclick="incDec(this)">+</div>
+            <div class="decButton" onclick="incDec(this)">-</div>
+        </div>
+    </div>
+
+    <div id="rolls">
+        <div class="rollName">Rolls</div>
+        <div class="rollCount" id="rowCount">1</div>
+        <div class="rollNumButtons">
+            <div class="incButton" onclick="incDec(this)">+</div>
+            <div class="decButton" onclick="incDec(this)">-</div>
+        </div>
+    </div>
+
+    <div id="flipButton" onclick="generateTable()">FLIP!</div>
 
 <div id="tables"></div>
 <table id="table">
@@ -27,7 +40,7 @@
 
     function createRows() {
         console.log("createRows ran")
-        var rowCount = document.getElementById("rcount").value;
+        var rowCount = parseInt(document.getElementById("rowCount").innerHTML);
         var singleRow = "<tr class='row'></tr>"
 
         var rowsString = singleRow.repeat(rowCount)
@@ -38,7 +51,7 @@
     function createCells() {
         console.log("createCells ran")
         var rows = document.getElementsByTagName("tr")
-        var columnCount = document.getElementById("ccount").value;
+        var columnCount = parseInt(document.getElementById("columnCount").innerHTML)
         for (let i = 0; i < rows.length; ++i) {
             var singleCell = "<td>Coin</td>"
             var columnsString = singleCell.repeat(columnCount);
@@ -59,6 +72,23 @@
         } else {
             return "T"
         }
+    }
+
+    function incDec(clickedElement) {
+        console.log("clicked")
+        var plusOrMinus = clickedElement.innerHTML
+        console.log(plusOrMinus)
+        var counterBox = clickedElement.parentElement.parentElement.querySelector('.rollCount')
+        var currentCount = parseInt(counterBox.innerHTML)
+        if (plusOrMinus == "+") {
+            var newCount = currentCount + 1
+        } else if (currentCount > 1) {
+            var newCount = currentCount - 1
+        } else {
+            newCount = 1
+        }
+        console.log(currentCount + 1)
+        counterBox.innerHTML = newCount.toString();
     }
 
 </script>
