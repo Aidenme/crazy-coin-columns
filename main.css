@@ -1,23 +1,84 @@
+body {
+    background-color: black;
+}
+
+.rollName {
+    font-family: Verdana, sans-serif;
+    font-size: 36px;
+    color: white;
+
+}
+
+.rollSettings {
+    display: grid;
+    grid-template-columns: 50px 200px;
+    gap: 1em;
+}
+
+.rollNumButtons {
+    display: grid;
+    grid-template-columns: 200px 200px;
+    gap: 1em;
+}
+
 .rollCount {
+    font-family: Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 36px;
+    text-align: center;
+    color: white;
+    left: 50%;
     height: 50px;
     width: 50px;
-    border: solid;
 }
 
 .incButton {
-    width: 50px;
-    height: 50px;
+    font-family: Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 36px;
+    text-align: center;
+    line-height: 100px;
+    width: 200px;
+    height: 100px;
     background-color: green;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
 }
 
 .decButton {
-    height: 50px;
-    width: 50px;
+    font-family: Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 36px;
+    text-align: center;
+    line-height: 100px;
+    width: 200px;
+    height: 100px;
     background-color: red;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+
 }
 
 #flipButton {
-    height: 50px;
-    width: 50px;
+    font-family: Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 36px;
+    text-align: center;
+    line-height: 100px;
+    margin-top: 20px;
+    margin-left: 65px;
+    height: 100px;
+    width: 418px;
     background-color: lightblue;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+}
+
+#table {
+    font-size: 36px;
+    color: white;
+
 }
